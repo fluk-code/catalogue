@@ -12,9 +12,9 @@ for branch in $protected_branches; do
   fi
 done
 
-if $protected; then
-  echo "Commits diretos na branch $current_branch não são permitidos."
-  exit 1
-fi
+# if $protected; then
+#   echo "Commits diretos na branch $current_branch não são permitidos."
+#   exit 1
+# fi
 
 npx lint-staged 

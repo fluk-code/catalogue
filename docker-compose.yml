@@ -1,12 +1,18 @@
 version: '3'
 
 services:
-  nomedoprojeto:
-    build: .
-    container_name: NOME_DO_PROJETO
+  catalogue-api:
+    build:
+       context: .docker
+       dockerfile: Dockerfile
+    image: catalogue-api
+    container_name: CatalogueAPI
     entrypoint: ./.docker/entrypoint.sh
     volumes:
+      - ..:/workspaces:cached
       - .:/home/node/app
+      - ./.docker/zsh/powerlevel10k/.p10k.zsh:/home/node/.p10k.zsh:delegated
+      - ./.docker/zsh/history:/home/node/zsh:delegated
     ports:
       - '9229:9229'
       - '${PORT}:${PORT}'

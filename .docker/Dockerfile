@@ -1,4 +1,4 @@
-FROM node:18.17.1
+FROM node:22.14.0
 
 RUN apt update && \
   apt install -y \
